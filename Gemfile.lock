@@ -27,6 +27,13 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: git@github.com:ramprabhu-idexcel/my-gem.git
+  revision: 10a46e0e8fd02f2c39727c2da8fae89768fd3587
+  branch: master
+  specs:
+    mygem (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -228,6 +235,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  mygem!
   mysql2
   pg
   puma (~> 3.0)

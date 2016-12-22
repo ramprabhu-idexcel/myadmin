@@ -4,7 +4,6 @@ ActiveAdmin.register Review do
 
   index do
     selectable_column
-    id_column
     column :rating
     column :restaurant
     column :user

@@ -28,11 +28,11 @@ GIT
       responders
 
 GIT
-  remote: git@github.com:ramprabhu-idexcel/my-gem.git
+  remote: git://github.com/ramprabhu-idexcel/my-gem.git
   revision: 10a46e0e8fd02f2c39727c2da8fae89768fd3587
-  branch: master
   specs:
     mygem (0.0.1)
+      rails (~> 5.0.1)
 
 GEM
   remote: https://rubygems.org/

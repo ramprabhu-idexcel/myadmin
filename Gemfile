@@ -37,7 +37,8 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'devise'
 
-gem 'mygem', git: 'git@github.com:ramprabhu-idexcel/my-gem.git', branch: 'master'
+gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

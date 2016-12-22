@@ -7,6 +7,7 @@ ActiveAdmin.register Review do
     id_column
     column :rating
     column :restaurant
+    column :user
     actions
   end
 
@@ -16,7 +17,8 @@ ActiveAdmin.register Review do
   form do |f|
     f.inputs "Restaurant Details" do
       f.input :rating
-      f.input :restaurant
+      f.input :restaurant, label: "Restaurant", as: :select, include_blank: false
+      f.input :user_id, input_html: { value: current_admin_user.id }, as: :hidden
     end
     f.actions
   end

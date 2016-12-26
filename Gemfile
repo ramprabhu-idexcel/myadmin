@@ -39,6 +39,8 @@ gem 'devise'
 
 gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
 
+#gem 'mygem', path: '/home/igate/projects/angular2-rails5/mygem'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

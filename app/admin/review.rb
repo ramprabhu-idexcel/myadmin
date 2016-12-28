@@ -15,8 +15,8 @@ ActiveAdmin.register Review do
 
   form do |f|
     f.inputs "Restaurant Details" do
-      f.input :rating
       f.input :restaurant, label: "Restaurant", as: :select, include_blank: false
+      f.input :rating
       f.input :user_id, input_html: { value: current_admin_user.id }, as: :hidden
     end
     f.actions

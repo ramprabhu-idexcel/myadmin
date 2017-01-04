@@ -1,4 +1,6 @@
 ActiveAdmin.register Restaurant do
+  menu :parent => "Hotel Management"
+
   permit_params :name, :branch, :address, :phone_no, :city
 
   index do

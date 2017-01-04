@@ -3,8 +3,7 @@ ActiveAdmin.register AdminUser do
 
   index do
     selectable_column
-    column :first_name
-    column :last_name
+    column :name
     column :username
     column :email
     column :age

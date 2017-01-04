@@ -1,4 +1,5 @@
 ActiveAdmin.register Review do
+  menu :parent => "Hotel Management"
 
   permit_params :rating, :restaurant_id, :user_id
 

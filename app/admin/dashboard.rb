@@ -21,7 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
         records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS
           FROM INFORMATION_SCHEMA.TABLES
-          WHERE TABLE_SCHEMA = '#{Rails.configuration.database_configuration[Rails.env]['database']}'
+          WHERE TABLE_SCHEMA = '#{config['database']}'
           order by TABLE_ROWS DESC;")
 
         puts records.inspect

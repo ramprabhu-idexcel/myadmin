@@ -8,7 +8,9 @@ ActiveAdmin.register Computer do
   index title: "Computer Quiz" do
     selectable_column
     column :question
-    column :options
+    column "options" do |computer|
+      computer.options.join(",")
+    end
     column :answer
     actions
   end
@@ -20,17 +22,22 @@ ActiveAdmin.register Computer do
   form do |f|
     f.inputs "Quiz Details" do
       f.input :question
-      f.input :options
+      f.input :options, input_html: { value: self.computer.options.join(",") }
       f.input :answer
     end
     f.actions
   end
 
   before_filter :set_options, only: [:create, :update]
+  before_filter :set_computer, only: [:edit]
 
   controller do
     def set_options
       params["computer"]["options"] = params["computer"]["options"].split(",")
+    end
+
+    def set_computer
+
     end
 
     def permitted_params

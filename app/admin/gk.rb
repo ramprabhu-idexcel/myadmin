@@ -8,7 +8,9 @@ ActiveAdmin.register Gk do
   index title: "GK Quiz" do
     selectable_column
     column :question
-    column :options
+    column "options" do |gk|
+      gk.options.join(",")
+    end
     column :answer
     actions
   end
@@ -16,11 +18,10 @@ ActiveAdmin.register Gk do
   filter :question
   filter :answer
 
-
   form do |f|
     f.inputs "Quiz Details" do
       f.input :question
-      f.input :options
+      f.input :options, input_html: {value: self.gk.options.join(",") }
       f.input :answer
     end
     f.actions

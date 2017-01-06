@@ -16,15 +16,11 @@ ActiveAdmin.register_page "Dashboard" do
         puts "############################"
         puts "POSTGRESQL"
 
-        records = ActiveRecord::Base.connection.execute("select
-                          table_schema,
-                          table_name,
-                          count_rows(table_schema, table_name)
-                        from information_schema.tables
-                        where
-                          table_schema not in ('pg_catalog', 'information_schema')
-                          and table_type='BASE TABLE'
-                        order by 3 desc")
+        records = ActiveRecord::Base.connection.execute("SELECT table_name
+                                FROM information_schema.tables
+                                WHERE table_type = 'BASE TABLE'
+                                AND table_schema NOT IN ('pg_catalog', 'information_schema')
+                                ORDER BY table_name ASC;")
 
         puts records.inspect
 

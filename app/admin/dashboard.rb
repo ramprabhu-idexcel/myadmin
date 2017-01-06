@@ -22,7 +22,9 @@ ActiveAdmin.register_page "Dashboard" do
                                 AND table_schema NOT IN ('pg_catalog', 'information_schema')
                                 ORDER BY table_name ASC;")
 
-        puts records.inspect
+        records.collect do |record|
+          puts record
+        end
 
         records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS

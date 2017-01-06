@@ -13,11 +13,16 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
 
+        puts "############################"
+        puts "#{Rails.configuration.database_configuration[Rails.env]['database']}"
+
         records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS
           FROM INFORMATION_SCHEMA.TABLES
           WHERE TABLE_SCHEMA = '#{Rails.configuration.database_configuration[Rails.env]['database']}'
           order by TABLE_ROWS DESC;")
+
+        puts records.inspect
 
         all_models_count = records.collect{ |row| [row[0], row[1].to_i]}
 

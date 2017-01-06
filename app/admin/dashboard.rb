@@ -12,32 +12,26 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-
-        puts "############################"
-        puts "POSTGRESQL"
-
-        records = ActiveRecord::Base.connection.execute("SELECT table_name
-                                FROM information_schema.tables
-                                WHERE table_type = 'BASE TABLE'
-                                AND table_schema NOT IN ('pg_catalog', 'information_schema')
-                                ORDER BY table_name ASC;")
-
-        all_models_count = records.collect do |record|
-          result = ActiveRecord::Base.connection.execute("SELECT COUNT(*) AS result FROM #{record['table_name']}")
-          puts result.getvalue(0,0)
-        end
-
-        puts "ALL MODELS COUNT"
-        puts all_models_count.inspect
-
-        records = ActiveRecord::Base.connection.execute("
+        if ActiveRecord::Base.connection.adapter_name == "Mysql2"
+          records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS
           FROM INFORMATION_SCHEMA.TABLES
           WHERE TABLE_SCHEMA = '#{Rails.configuration.database_configuration[Rails.env]['database']}'
           order by TABLE_ROWS DESC;")
 
-        all_models_count = records.collect{ |row| [row[0], row[1].to_i]}
+          all_models_count = records.collect{ |row| [row[0], row[1].to_i]}
+        else
+          records = ActiveRecord::Base.connection.execute("SELECT table_name
+                                FROM information_schema.tables
+                                WHERE table_type = 'BASE TABLE'
+                                AND table_schema NOT IN ('pg_catalog', 'information_schema')
+                                ORDER BY table_name ASC;")
 
+          all_models_count = records.collect do |record|
+            result = ActiveRecord::Base.connection.execute("SELECT COUNT(*) AS result FROM #{record['table_name']}")
+            [record["table_name"], result.getvalue(0,0).to_i]
+          end
+        end
         max = all_models_count.first[1].to_f
         percent = 100.00/max
 

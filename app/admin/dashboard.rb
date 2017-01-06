@@ -22,9 +22,12 @@ ActiveAdmin.register_page "Dashboard" do
                                 AND table_schema NOT IN ('pg_catalog', 'information_schema')
                                 ORDER BY table_name ASC;")
 
-        records.collect do |record|
-          puts record
+        all_models_count = records.collect do |record|
+          [record["table_name"], ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM #{record["table_name"]};").to_i]
         end
+
+        puts "ALL MODELS COUNT"
+        puts all_models_count.inspect
 
         records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS

@@ -24,7 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
 
         all_models_count = records.collect do |record|
           result = ActiveRecord::Base.connection.execute("SELECT COUNT(*) AS result FROM #{record['table_name']}")
-          puts result.result
+          puts result.getvalue(0,0)
         end
 
         puts "ALL MODELS COUNT"

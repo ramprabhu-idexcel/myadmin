@@ -16,6 +16,11 @@ ActiveAdmin.register_page "Dashboard" do
         puts "############################"
         puts "#{Rails.configuration.database_configuration[Rails.env]['database']}"
 
+        puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+        config = ActiveRecord::Base.configurations[Rails.env] || Rails.application.config.database_configuration[Rails.env]
+        puts config.inspect
+
         records = ActiveRecord::Base.connection.execute("
           SELECT TABLE_NAME, TABLE_ROWS
           FROM INFORMATION_SCHEMA.TABLES

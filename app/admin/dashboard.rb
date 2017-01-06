@@ -13,16 +13,26 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
 
-        puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+        puts "############################"
+        puts "POSTGRESQL"
 
-        config = ActiveRecord::Base.configurations[Rails.env] || Rails.application.config.database_configuration[Rails.env]
-        puts config.inspect
-
-        records = ActiveRecord::Base.connection.execute("select table_schema, table_name, count_rows(table_schema, table_name)
-                 from information_schema.tables where table_schema = '#{config['database']}'
-                 and table_type='BASE TABLE' order by 3 desc")
+        records = ActiveRecord::Base.connection.execute("select
+                          table_schema,
+                          table_name,
+                          count_rows(table_schema, table_name)
+                        from information_schema.tables
+                        where
+                          table_schema not in ('pg_catalog', 'information_schema')
+                          and table_type='BASE TABLE'
+                        order by 3 desc")
 
         puts records.inspect
+
+        records = ActiveRecord::Base.connection.execute("
+          SELECT TABLE_NAME, TABLE_ROWS
+          FROM INFORMATION_SCHEMA.TABLES
+          WHERE TABLE_SCHEMA = '#{Rails.configuration.database_configuration[Rails.env]['database']}'
+          order by TABLE_ROWS DESC;")
 
         all_models_count = records.collect{ |row| [row[0], row[1].to_i]}
 

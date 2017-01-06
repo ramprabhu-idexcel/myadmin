@@ -23,7 +23,7 @@ ActiveAdmin.register_page "Dashboard" do
                                 ORDER BY table_name ASC;")
 
         all_models_count = records.collect do |record|
-          [record["table_name"], ActiveRecord::Base.connection.execute("SELECT reltuples::bigint AS estimate FROM pg_class where relname=#{record['table_name']};")]
+          [record["table_name"], ActiveRecord::Base.connection.execute("SELECT COUNT(*) AS result FROM $table")]
         end
 
         puts "ALL MODELS COUNT"

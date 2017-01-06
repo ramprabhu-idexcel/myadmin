@@ -13,9 +13,6 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
 
-        puts "############################"
-        puts "#{Rails.configuration.database_configuration[Rails.env]['database']}"
-
         puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
         config = ActiveRecord::Base.configurations[Rails.env] || Rails.application.config.database_configuration[Rails.env]

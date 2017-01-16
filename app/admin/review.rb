@@ -1,6 +1,6 @@
 ActiveAdmin.register Review do
   menu :parent => "Hotel Management"
-
+  config.comments = false
   permit_params :rating, :restaurant_id, :user_id
 
   index do

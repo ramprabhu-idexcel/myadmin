@@ -29,15 +29,10 @@ ActiveAdmin.register Computer do
   end
 
   before_filter :set_options, only: [:create, :update]
-  before_filter :set_computer, only: [:edit]
 
   controller do
     def set_options
       params["computer"]["options"] = params["computer"]["options"].split(",")
-    end
-
-    def set_computer
-
     end
 
     def permitted_params

@@ -26,7 +26,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-  config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css', 'dashboard.css']
+  config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css', 'dashboard.css', 'bar.css', 'd3.min.js', 'gdpBarGraph.js']
 
   config.serve_static_assets = true
 

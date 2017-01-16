@@ -187,12 +187,16 @@ ActiveAdmin.setup do |config|
   #
   # To load a stylesheet:
   config.register_stylesheet 'dashboard.css'
+
+  config.register_stylesheet 'bar.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  #   config.register_javascript 'my_javascript.js'
+  config.register_javascript 'd3.min.js'
+
+  config.register_javascript 'gdpBarGraph.js'
 
   # == CSV options
   #

@@ -35,9 +35,8 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Info" do
-          para "Welcome to ActiveAdmin."
+          render partial: 'bar_chat'
         end
-
       end
     end
   end

@@ -16,20 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
         percent = 100.00/max
 
         panel "Database Records" do
-          recs = ''
-          all_models_count.each do |model_name, count|
-            bar_size = percent*count
-            bar_size = 2 if bar_size < 2 and bar_size > 0
-
-            recs << "<div width='100px'>"
-            recs << link_to("#{model_name.tableize} - #{count}", "/admin/#{model_name.tableize}") rescue nil
-            recs << "<div class=\"progress progress-info\">"
-            recs << "<div class=\"bar\" style=\"width: #{bar_size}%\">"
-            recs << "</div>"
-            recs << "</div>"
-            recs << "</div>"
-          end
-          recs.html_safe
+          render partial: 'db_records'
         end
       end
 

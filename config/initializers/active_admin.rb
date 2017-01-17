@@ -198,6 +198,8 @@ ActiveAdmin.setup do |config|
 
   config.register_javascript 'gdpBarGraph.js'
 
+  config.register_javascript 'dbChart.js'
+
   # == CSV options
   #
   # Set the CSV builder separator

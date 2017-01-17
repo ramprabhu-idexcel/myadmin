@@ -1,0 +1,15 @@
+<div class="db_graph_panel">
+  <h1 style="text-align:center; font-size: small; font-weight: bold">DB Graph Example </h1>
+  <%= javascript_include_tag 'dbChart', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_tag "all_models_count = #{all_models_count.to_json.html_safe};" %>
+
+  <script>
+    var myArrayOfObjects = [];
+    all_models_count.forEach(function(data){
+       myArrayOfObjects.push({ country: data[0], gdp: data[1] });
+    });
+    render(myArrayOfObjects);
+  </script>
+</div>
+
+

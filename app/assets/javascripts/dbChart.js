@@ -1,7 +1,7 @@
 // define margin
 var margin = { top: 20, right: 10, bottom: 100, left: 40 },
-    width = 500 - margin.right - margin.left,
-    height = 300 - margin.top - margin.bottom;
+    width = 550 - margin.right - margin.left,
+    height = 350 - margin.top - margin.bottom;
 
 // define SVG
 

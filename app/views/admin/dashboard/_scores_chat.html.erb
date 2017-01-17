@@ -1,0 +1,11 @@
+<div class="score_graph_panel">
+  <%= javascript_include_tag 'd3.v4.min', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'score', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_tag "total_scores = #{total_scores.to_json.html_safe};" %>
+  <script>
+    console.log("33333333333");
+    console.log(total_scores);
+    render(total_scores);
+  </script>
+</div>
+

@@ -196,9 +196,13 @@ ActiveAdmin.setup do |config|
   # To load a javascript file:
   config.register_javascript 'd3.min.js'
 
+  config.register_javascript 'd3.v4.min.js'
+
   config.register_javascript 'gdpBarGraph.js'
 
   config.register_javascript 'dbChart.js'
+
+  config.register_javascript 'score.js'
 
   # == CSV options
   #

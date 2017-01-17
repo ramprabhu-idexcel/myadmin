@@ -12,20 +12,34 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
-        max = all_models_count.first[1].to_f
-        percent = 100.00/max
-
         panel "Database Records" do
           render partial: 'db_records'
         end
       end
 
       column do
-        panel "Info" do
-          render partial: 'bar_chat'
+        panel "Quiz Scores" do
+          #render partial: 'bar_chat'
+          render partial: 'scores_chat'
         end
       end
     end
+
+=begin
+    columns do
+      column do
+        panel "Scores" do
+          render partial: 'scores_chat'
+        end
+      end
+
+      column do
+        panel "Users" do
+
+        end
+      end
+    end
+=end
   end
 end
 
@@ -51,4 +65,14 @@ def all_models_count
     end
   end
   all_models_count
+end
+
+def total_scores
+  users = User.total_scores
+  users.map do |user|
+    {}.tap do |user_score|
+      user_score["name"] = user.name
+      user_score["marks"] = user.total_marks
+    end
+  end
 end

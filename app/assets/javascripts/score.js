@@ -5,7 +5,7 @@ var margin = { top: 20, right: 20, bottom: 20, left: 20},
     radius = width / 2;
 
 var color = d3.scaleOrdinal()
-    .range(["#BBDEFB", "#99CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#19T602"]);
+    .range(["#BBDEFB", "#99CAF9", "#64B5F6", "#42A5F5", "#2196F3", "#1E88E5", "#197602"]);
 
 
 // arc generator
@@ -61,7 +61,9 @@ function render(data){
         .duration(2000)
         .attr("transform", function(d) { return "translate("+ labelArc.centroid(d) + ")";})
         .attr("dy", ".35em")
-        .text(function(d) { return d.data.name; });
+        .text(function(d) { return d.data.name; })
+        .style("fill", "black")
+        .style("text-anchor", "middle");
 
 }
 

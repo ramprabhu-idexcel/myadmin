@@ -62,8 +62,6 @@ function render(data){
         .attr("transform", function(d) { return "translate("+ labelArc.centroid(d) + ")";})
         .attr("dy", ".35em")
         .text(function(d) { return d.data.name; })
-        .style("fill", "black")
-        .style("text-anchor", "middle");
 
 }
 

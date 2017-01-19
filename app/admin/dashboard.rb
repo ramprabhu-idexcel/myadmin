@@ -33,6 +33,8 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Top 10 Restaurants" do
+          puts "!!!!!!!!!!!!!!!!!!"
+          puts best_restaurants.inspect
           render partial: 'top_restaurant'
         end
       end

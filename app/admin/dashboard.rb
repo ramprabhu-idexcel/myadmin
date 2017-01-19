@@ -33,9 +33,6 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Top 10 Restaurants" do
-          puts "!!!!!!!!!!!!!!!!!!"
-          restaurants = Restaurant.find_by_sql("SELECT  restaurants.*, AVG(reviews.rating) as avg_rating FROM restaurants INNER JOIN reviews ON reviews.restaurant_id = restaurants.id GROUP BY restaurants.id HAVING (avg_rating > 2) LIMIT 10")
-          puts restaurants.inspect
           render partial: 'top_restaurant'
         end
       end

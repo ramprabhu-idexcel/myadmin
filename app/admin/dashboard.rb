@@ -19,17 +19,15 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Quiz Scores" do
-          #render partial: 'bar_chat'
           render partial: 'scores_chat'
         end
       end
     end
 
-=begin
     columns do
       column do
-        panel "Scores" do
-          render partial: 'scores_chat'
+        panel "Login Count" do
+          render partial: 'user_login_count'
         end
       end
 
@@ -39,7 +37,6 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
-=end
   end
 end
 
@@ -73,6 +70,15 @@ def total_scores
     {}.tap do |user_score|
       user_score["name"] = user.name
       user_score["marks"] = user.total_marks
+    end
+  end
+end
+
+def users
+  User.all.map do |user|
+    {}.tap do |users|
+      users[:name] = user.name
+      users[:count] = user.sign_in_count
     end
   end
 end

@@ -204,6 +204,8 @@ ActiveAdmin.setup do |config|
 
   config.register_javascript 'score.js'
 
+  config.register_javascript 'loginAttempt.js'
+
   # == CSV options
   #
   # Set the CSV builder separator

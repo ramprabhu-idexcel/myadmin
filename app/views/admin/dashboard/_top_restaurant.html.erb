@@ -1,0 +1,8 @@
+<div class="top_restaurant_graph_panel">
+  <%= javascript_include_tag 'd3.min', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'topRestaurants', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_tag "best_restaurants = #{best_restaurants.to_json.html_safe};" %>
+  <script>
+      render(best_restaurants);
+  </script>
+</div>

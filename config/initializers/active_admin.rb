@@ -206,6 +206,8 @@ ActiveAdmin.setup do |config|
 
   config.register_javascript 'loginAttempt.js'
 
+  config.register_javascript 'topRestaurants.js'
+
   # == CSV options
   #
   # Set the CSV builder separator

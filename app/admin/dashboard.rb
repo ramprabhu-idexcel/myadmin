@@ -32,8 +32,8 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Users" do
-
+        panel "Top 10 Restaurants" do
+          render partial: 'top_restaurant'
         end
       end
     end
@@ -79,6 +79,15 @@ def users
     {}.tap do |users|
       users[:name] = user.name
       users[:count] = user.sign_in_count
+    end
+  end
+end
+
+def best_restaurants
+  Restaurant.best.map do |restaurant|
+    {}.tap do |res|
+      res[:name] = restaurant.name
+      res[:count] = restaurant.avg_rating.round
     end
   end
 end

@@ -5,7 +5,6 @@ ActiveAdmin.register Project do
 
   # index page
   index do
-    selectable_column
     column :title
     actions
   end

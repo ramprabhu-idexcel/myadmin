@@ -17,8 +17,10 @@ ActiveAdmin.register Task do
 
   # Index page
   index do
-    selectable_column
     column :title
+    column "Assigned To" do |task|
+      task.user.name
+    end
     column :is_done
     column :due_date do |task|
        task.due_date? ? l(task.due_date, :format => :long) : '-'
@@ -55,7 +57,7 @@ ActiveAdmin.register Task do
       f.input :user, as: :select, include_blank: false
       f.input :title
       f.input :is_done
-      f.input :due_date, include_blank: false
+      f.input :due_date, include_blank: false, as: :datepicker
     end
     f.actions
   end

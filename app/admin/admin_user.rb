@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu :parent => "User Management"
   config.sort_order = 'created_at_asc'
   permit_params :first_name, :last_name, :username, :email, :age, :address, :phone, :password, :password_confirmation, :is_admin
 

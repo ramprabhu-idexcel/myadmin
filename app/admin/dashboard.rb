@@ -36,6 +36,20 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        panel "Today's News" do
+          render partial: 'today_news', locals: { id: 1 }
+        end
+      end
+
+      column do
+        panel "Yesterday's News" do
+          render partial: 'today_news', locals: { id: 2 }
+        end
+      end
+    end
+
+    columns do
+      column do
         panel "Database Records" do
           render partial: 'db_records'
         end

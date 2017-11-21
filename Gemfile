@@ -37,9 +37,9 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'devise'
 
-gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
+#gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
 
-#gem 'mygem', path: '/home/igate/projects/angular2-rails5/mygem'
+gem 'mygem', path: '/Users/ram/projects/rails/mini-project/my-gem'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

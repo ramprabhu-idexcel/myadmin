@@ -27,9 +27,8 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
-GIT
-  remote: git://github.com/ramprabhu-idexcel/my-gem.git
-  revision: 240e370526642850d7f5b85e945ff893d99b9fc0
+PATH
+  remote: /Users/ram/projects/rails/mini-project/my-gem
   specs:
     mygem (0.0.1)
       rails (~> 5.0.1)
@@ -249,4 +248,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.15.4

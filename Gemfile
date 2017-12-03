@@ -37,9 +37,9 @@ gem 'activeadmin', github: 'activeadmin'
 
 gem 'devise'
 
-#gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
+gem 'mygem', github: 'ramprabhu-idexcel/my-gem'
 
-gem 'mygem', path: '/Users/ram/projects/rails/mini-project/my-gem'
+#gem 'mygem', path: '/Users/ram/projects/rails/mini-project/my-gem'
 
 gem 'sidekiq'
 

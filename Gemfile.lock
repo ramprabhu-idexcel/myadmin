@@ -27,8 +27,9 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
-PATH
-  remote: /Users/ram/projects/rails/mini-project/my-gem
+GIT
+  remote: git://github.com/ramprabhu-idexcel/my-gem.git
+  revision: 8efa1fde0a173bf25a0edea82388a47b3828f830
   specs:
     mygem (0.0.1)
       rails (~> 5.0.1)

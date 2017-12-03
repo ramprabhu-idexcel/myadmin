@@ -41,6 +41,12 @@ gem 'devise'
 
 gem 'mygem', path: '/Users/ram/projects/rails/mini-project/my-gem'
 
+gem 'sidekiq'
+
+gem 'redis-namespace'
+
+gem 'paperclip'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

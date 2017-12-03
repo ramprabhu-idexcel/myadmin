@@ -1,0 +1,2 @@
+class CompanyDoc < Document
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124065413) do
+ActiveRecord::Schema.define(version: 20171202102327) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -39,6 +39,66 @@ ActiveRecord::Schema.define(version: 20170124065413) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+  end
+
+  create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.string   "office_email"
+    t.string   "personal_email"
+    t.string   "mobile_no"
+    t.string   "alternate_no"
+    t.string   "landline"
+    t.string   "door_no"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "pincode"
+    t.string   "emergency_contact_name"
+    t.string   "emergency_contact_no"
+    t.integer  "person_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["person_id"], name: "index_contacts_on_person_id", using: :btree
+  end
+
+  create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "employee_roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "place_of_birth"
+    t.datetime "joining_date"
+    t.string   "salary"
+    t.integer  "total_experience"
+    t.string   "citizenship"
+    t.boolean  "active",             default: true
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "manager_id"
+    t.integer  "designation_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["designation_id"], name: "index_employees_on_designation_id", using: :btree
+    t.index ["manager_id"], name: "index_employees_on_manager_id", using: :btree
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

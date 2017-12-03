@@ -23,7 +23,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
   config.assets.precompile += ['active_admin.js', 'active_admin.css', 'active_admin/print.css', 'dashboard.css', 'bar.css', 'd3.min.js', 'gdpBarGraph.js']

@@ -20,3 +20,12 @@ test:
   username: root
   password:
   host: localhost
+  
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: web_blog_dev
+  username: root
+  password:
+  host: localhost

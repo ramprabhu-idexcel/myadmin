@@ -7,7 +7,7 @@ ActiveAdmin.register Employee do
 
   index do
     selectable_column
-    column "Emp ID", :id
+    column "emp ID", :id
     column :first_name
     column :last_name
     column :gender

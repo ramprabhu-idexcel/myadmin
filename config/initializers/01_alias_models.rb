@@ -36,4 +36,3 @@ Contact = Mygem::Contact
     end
   end
 end
-
